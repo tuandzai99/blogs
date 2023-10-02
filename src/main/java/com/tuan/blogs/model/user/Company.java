@@ -13,39 +13,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "company")
 public class Company extends UserDateAudit {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(name = "name")
-	private String name;
+    @Column(name = "name")
+    private String name;
 
-	@Column(name = "catch_phrase")
-	private String catchPhrase;
+    @Column(name = "catch_phrase")
+    private String catchPhrase;
 
-	@Column(name = "bs")
-	private String bs;
+    @Column(name = "bs")
+    private String bs;
 
-	@OneToOne(mappedBy = "company")
-	private User user;
+    @OneToOne(mappedBy = "company")
+    private User user;
 
 
-	public Company(String name, String catchPhrase, String bs) {
-		this.name = name;
-		this.catchPhrase = catchPhrase;
-		this.bs = bs;
-	}
+    public Company(String name, String catchPhrase, String bs) {
+        this.name = name;
+        this.catchPhrase = catchPhrase;
+        this.bs = bs;
+    }
 
-	@JsonIgnore
-	public Long getId() {
-		return id;
-	}
+    @JsonIgnore
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 //	@JsonIgnore
 //	@Override

@@ -13,25 +13,25 @@ import java.util.List;
 @Data
 public class AlbumRequest extends UserDateAuditPayload {
 
-	private Long id;
+    private Long id;
 
-	private String title;
+    private String title;
 
-	private User user;
+    private User user;
 
-	private List<Photo> photo;
+    private List<Photo> photo;
 
-	public List<Photo> getPhoto() {
+    public List<Photo> getPhoto() {
 
-		return photo == null ? null : new ArrayList<>(photo);
-	}
+        return photo == null ? null : new ArrayList<>(photo);
+    }
 
-	public void setPhoto(List<Photo> photo) {
+    public void setPhoto(List<Photo> photo) {
 
-		if (photo == null) {
-			this.photo = null;
-		} else {
-			this.photo = Collections.unmodifiableList(photo);
-		}
-	}
+        if (photo == null) {
+            this.photo = null;
+        } else {
+            this.photo = Collections.unmodifiableList(photo);
+        }
+    }
 }

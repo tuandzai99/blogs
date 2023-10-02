@@ -16,7 +16,7 @@ public class HomeController {
     private AddressService addressService;
 
     @GetMapping("")
-     public ResponseEntity<?> getHome() {
-         return ResponseEntity.ok("HOME");
-     }
+    public ResponseEntity<?> getHome() {
+        return ResponseEntity.ok("HOME");
+    }
 }

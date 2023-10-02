@@ -13,26 +13,26 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "geo")
 public class Geo extends UserDateAudit {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@JsonIgnore
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @JsonIgnore
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(name = "lat")
-	private String lat;
+    @Column(name = "lat")
+    private String lat;
 
-	@Column(name = "lng")
-	private String lng;
+    @Column(name = "lng")
+    private String lng;
 
-	@OneToOne(mappedBy = "geo")
-	private Address address;
+    @OneToOne(mappedBy = "geo")
+    private Address address;
 
-	public Geo(String lat, String lng) {
-		this.lat = lat;
-		this.lng = lng;
-	}
+    public Geo(String lat, String lng) {
+        this.lat = lat;
+        this.lng = lng;
+    }
 
 //	@JsonIgnore
 //	@Override

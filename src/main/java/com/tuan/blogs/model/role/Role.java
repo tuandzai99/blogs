@@ -10,16 +10,16 @@ import org.hibernate.annotations.NaturalId;
 @NoArgsConstructor
 @Table(name = "roles")
 public class Role {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Enumerated(EnumType.STRING)
-	@NaturalId
-	@Column(name = "name")
-	private RoleName name;
+    @Enumerated(EnumType.STRING)
+    @NaturalId
+    @Column(name = "name")
+    private RoleName name;
 
-	public Role(RoleName name) {
-		this.name = name;
-	}
+    public Role(RoleName name) {
+        this.name = name;
+    }
 }
