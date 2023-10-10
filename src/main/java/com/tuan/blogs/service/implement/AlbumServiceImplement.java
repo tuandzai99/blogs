@@ -24,13 +24,4 @@ public class AlbumServiceImplement implements AlbumService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public PagedResponse<Album> getAlbums(String username, int page, int size) {
-
-        User user = userRepository.findByUsername(username).orElseThrow(() -> new NullPointerException("Not found User"));
-        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC ,CREATED_AT);
-        Page<Album> albums = albumRepository.findAll(pageable);
-
-        return null;
-    }
 }
