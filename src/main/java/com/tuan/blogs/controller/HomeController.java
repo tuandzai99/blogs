@@ -2,6 +2,7 @@ package com.tuan.blogs.controller;
 
 
 import com.tuan.blogs.model.user.Address;
+import com.tuan.blogs.model.user.User;
 import com.tuan.blogs.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ public class HomeController {
 
     @GetMapping("")
     public ResponseEntity<?> getHome() {
+        User user = new User();
         return ResponseEntity.ok("HOME");
     }
 }

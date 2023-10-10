@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -49,6 +50,10 @@ public class User extends DateAudit {
     private String username;
 
     @NotBlank
+    @Column(name = "user_status")
+    private boolean userStatus;
+
+    @NotBlank
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Size(max = 100)
     @Column(name = "password")
@@ -72,7 +77,11 @@ public class User extends DateAudit {
     private String website;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id",
+                    referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id",
+                    referencedColumnName = "id"))
     private List<Role> roles;
 
     @JsonIgnore
@@ -172,5 +181,9 @@ public class User extends DateAudit {
         } else {
             this.comments = Collections.unmodifiableList(comments);
         }
+    }
+
+    public boolean getUserstatus() {
+        return this.userStatus;
     }
 }
